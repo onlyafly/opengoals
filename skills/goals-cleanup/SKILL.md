@@ -103,7 +103,7 @@ For every goal with `child_goals` set: verify each named child file exists and t
 
 ## Step 6 — Move archived goals
 
-For each goal where `archived: true` that is **not** already in an `Archive/` subfolder, move the file to the `Archive/` subfolder within its current timescale folder (e.g. `Goals/Annual/Archive/`). Create the `Archive/` folder if it doesn't exist.
+For each goal where `archived: true` that is **not** already in `Goals/8-Archived/`, move the file to `Goals/8-Archived/`.
 
 After moving, update any wikilinks in other goal notes that referenced the moved file.
 

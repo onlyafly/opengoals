@@ -1,6 +1,6 @@
 ---
 name: goals-init
-description: Set up the Goals system in this vault for the first time — creates any missing Goals/ subfolders, installs mdquery if needed, and builds the index. Safe to re-run: never deletes or modifies existing files or folders.
+description: "Set up the Goals system in this vault for the first time — creates any missing Goals/ subfolders, installs mdquery if needed, and builds the index. Safe to re-run: never deletes or modifies existing files or folders."
 disable-model-invocation: true
 effort: high
 allowed-tools: Bash
@@ -39,11 +39,12 @@ The required folder structure is:
 
 ```
 Goals/
-  1-Weekly/Archive/
-  2-Monthly/Archive/
-  3-Quarterly/Archive/
-  4-Annual/Archive/
-  9-Someday/Archive/
+  1-Weekly/
+  2-Monthly/
+  3-Quarterly/
+  4-Annual/
+  8-Archived/
+  9-Someday/
 ```
 
 `mkdir -p` is safe to run unconditionally — it creates only what is missing and leaves existing directories and their contents untouched:
@@ -51,11 +52,12 @@ Goals/
 ```bash
 VAULT="$(cd "${CLAUDE_SKILL_DIR}/../../../" && pwd)"
 mkdir -p \
-  "$VAULT/Goals/1-Weekly/Archive" \
-  "$VAULT/Goals/2-Monthly/Archive" \
-  "$VAULT/Goals/3-Quarterly/Archive" \
-  "$VAULT/Goals/4-Annual/Archive" \
-  "$VAULT/Goals/9-Someday/Archive"
+  "$VAULT/Goals/1-Weekly" \
+  "$VAULT/Goals/2-Monthly" \
+  "$VAULT/Goals/3-Quarterly" \
+  "$VAULT/Goals/4-Annual" \
+  "$VAULT/Goals/8-Archived" \
+  "$VAULT/Goals/9-Someday"
 ```
 
 After running, list which folders were already present and which were newly created (compare against the pre-loaded state above).

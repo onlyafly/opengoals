@@ -23,15 +23,11 @@ VAULT="$(cd "${CLAUDE_SKILL_DIR}/../../../" && pwd)"
 ```
 Goals/
   1-Weekly/         — Weekly goals (e.g. 2026-W13)
-    Archive/        — Archived weekly goals
   2-Monthly/        — Monthly goals (e.g. 2026-03)
-    Archive/        — Archived monthly goals
   3-Quarterly/      — Quarterly goals (e.g. Q1 2026)
-    Archive/        — Archived quarterly goals
   4-Annual/         — Yearly goals
-    Archive/        — Archived annual goals
+  8-Archived/       — All archived goals (any timescale)
   9-Someday/        — Someday/maybe goals with no committed time horizon
-    Archive/        — Archived someday goals
 ```
 
 ## Filename Naming Conventions
@@ -124,7 +120,7 @@ archived: false
 ## Archiving a Goal
 
 1. Set `archived: true` in frontmatter
-2. Move the file to the `Archive/` subfolder within its timescale folder (e.g. `Goals/Annual/Archive/`)
+2. Move the file to `Goals/8-Archived/`
 3. Update any wikilinks in other goal notes that referenced the old path
 
 ## mdquery Queries
@@ -174,6 +170,6 @@ SELECT l.value AS timescale,
 FROM files f
 JOIN frontmatter l ON f.id = l.file_id AND l.key = 'timescale'
 JOIN frontmatter s ON f.id = s.file_id AND s.key = 'status'
-WHERE f.path LIKE '%/Goals/%' AND f.path NOT LIKE '%/Archive/%'
+WHERE f.path LIKE '%/Goals/%' AND f.path NOT LIKE '%/8-Archived/%'
 GROUP BY l.value"
 ```

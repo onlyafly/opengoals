@@ -64,7 +64,7 @@ Any frontmatter field can be updated: `due_date`, `owner`, `metrics`, `metric_ta
 To archive:
 
 1. Set `archived: true` in frontmatter.
-2. Move the file to the `Archive/` subfolder within its current timescale folder (e.g. `Goals/Annual/Archive/`). Create the folder if it doesn't exist.
+2. Move the file to `Goals/8-Archived/`.
 3. Update any wikilinks in other goal notes (`parent_goal` and `child_goals` fields) that referenced the old path — check with:
 
 ```bash
