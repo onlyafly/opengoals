@@ -1,0 +1,8 @@
+{
+  "name": "og",
+  "description": "OpenGoals — goal management for Obsidian vaults. Tracks personal and company goals (OKRs) with structured frontmatter, mdquery integration, and a full CRUD skill suite.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Kevin Albrecht"
+  }
+}
