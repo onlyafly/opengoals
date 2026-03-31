@@ -101,7 +101,24 @@ For every goal with `child_goals` set: verify each named child file exists and t
 
 ---
 
-## Step 6 — Move archived goals
+## Step 6 — Fill missing due dates
+
+For each goal where `due_date` is missing or empty, derive it from the goal's `period` and `timescale`:
+
+| `timescale` | `period` example | `due_date` |
+|---|---|---|
+| `annual` | `2026` | `2026-12-31` (last day of year) |
+| `quarterly` | `2026-Q1` | `2026-03-31` (last day of quarter) |
+| `monthly` | `2026-04` | `2026-04-30` (last day of month) |
+| `weekly` | `2026-W13` | the Sunday that ends that ISO week |
+
+If `due_date` is already set to a valid date, leave it unchanged. If `period` is missing or ambiguous and no due date can be derived, flag for manual attention.
+
+Add the `due_date` field if it doesn't exist in the frontmatter; update it in-place if it exists but is empty.
+
+---
+
+## Step 7 — Move archived goals
 
 For each goal where `archived: true` that is **not** already in `Goals/8-Archived/`, move the file to `Goals/8-Archived/`.
 
@@ -109,7 +126,7 @@ After moving, update any wikilinks in other goal notes that referenced the moved
 
 ---
 
-## Step 7 — Reindex
+## Step 8 — Reindex
 
 Rebuild the index to reflect all renames and moves made during cleanup:
 
@@ -125,7 +142,7 @@ rm "$VAULT/.mdquery/index.db" && mdquery index "$VAULT" --recursive --full
 Produce a clean report:
 
 **Changes made** (auto-fixed):
-- List each rename, title/H1 fix, added bidirectional link, and archive move
+- List each rename, title/H1 fix, added bidirectional link, due-date fill, and archive move
 
 **Issues flagged** (require manual attention):
 - Missing or invalid required fields
