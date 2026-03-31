@@ -71,7 +71,7 @@ metric_current: <latest value>           # optional
 metric_target: <target value>            # optional
 due_date: YYYY-MM-DD                     # optional
 tracker_link: <URL>                      # optional
-rag_status: Red | Yellow | Green         # optional, only meaningful when status = In Progress
+rag_status: red | yellow | green         # optional, only meaningful when status = In Progress
 archived: false
 ---
 ```
@@ -97,7 +97,7 @@ archived: false
 | `metric_target` | No | Success threshold / target value |
 | `due_date` | No | `YYYY-MM-DD` |
 | `tracker_link` | No | URL to an external tracking tool (e.g. Garmin, Strava, Notion, a dashboard) |
-| `rag_status` | No | `Red`, `Yellow`, or `Green` — only meaningful when `status = In Progress` |
+| `rag_status` | No | `red`, `yellow`, or `green` — only meaningful when `status = In Progress` |
 | `archived` | Yes | `true` or `false` |
 
 ### Period Formats

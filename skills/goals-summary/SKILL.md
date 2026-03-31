@@ -53,14 +53,14 @@ Output format:
 
 **Status column rendering:**
 - Render the status text as-is.
-- If `rag_status` is set, append the corresponding emoji after the status text: `Red` → 🔴, `Yellow` → 🟡, `Green` → 🟢. Example: `In Progress 🟡`
+- If `rag_status` is set, append the corresponding emoji after the status text: `red` → 🔴, `yellow` → 🟡, `green` → 🟢. Example: `In Progress 🟡`
 - Only show the RAG emoji when `rag_status` is set — omit it otherwise.
 
 **Due date highlighting** (compare against today's date injected above):
-- If a goal is overdue (due_date < today) and not Done/Cancelled: prefix the title cell with ⚠️
-- If a goal is due within 14 days and not Done/Cancelled: prefix the title cell with ⏰
-- Apply highlighting to both parent rows and child rows independently.
 - If `due_date` is set, append it below the title in the same cell using a divider: `Goal Title<br> ———— <br>Due: YYYY-MM-DD`
+- If a goal is overdue (due_date < today) and not Done/Cancelled: append ⚠️ directly after the date — `Due: YYYY-MM-DD ⚠️`
+- If a goal is due within 14 days and not Done/Cancelled: append ⏰ directly after the date — `Due: YYYY-MM-DD ⏰`
+- Apply highlighting to both parent rows and child rows independently.
 
 End with a one-line summary: total goals, how many are Not Started, In Progress, Done, Cancelled.
 
