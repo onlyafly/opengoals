@@ -6,7 +6,7 @@ allowed-tools: Bash
 
 ```bash
 VAULT="$(cd "${CLAUDE_SKILL_DIR}/../../../" && pwd)"
-rm "$VAULT/.mdquery/index.db" && mdquery index "$VAULT" --recursive --full
+rm "$VAULT/.mdquery/index.db" && mdquery index "$VAULT" --recursive --full --force
 ```
 
 Report the indexing results (files processed, updated, skipped).
